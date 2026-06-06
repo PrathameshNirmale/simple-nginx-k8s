@@ -1,5 +1,4 @@
 apiVersion: apps/v1
-
 kind: Deployment
 
 metadata:
@@ -21,9 +20,9 @@ spec:
       containers:
       - name: nginx-demo
 
-        image: nginx-demo:latest
+        image: 192.168.150.24:8082/nginx-demo:latest
 
-        imagePullPolicy: Never
+        imagePullPolicy: Always
 
         ports:
         - containerPort: 80
