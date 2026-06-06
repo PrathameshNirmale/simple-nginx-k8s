@@ -12,9 +12,11 @@ spec:
       labels:
         app: nginx-demo
     spec:
+      imagePullSecrets:
+      - name: nexus-secret
       containers:
-        - name: nginx-demo
-          image: 192.168.150.24:8082/nginx-demo:latest
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 80
+      - name: nginx-demo
+        image: 192.168.150.24:8082/nginx-demo:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
