@@ -18,11 +18,9 @@ spec:
 
     spec:
       containers:
-      - name: nginx-demo
-
-        image: 192.168.150.24:8082/nginx-demo:latest
-
-        imagePullPolicy: Always
+        - name: nginx-demo
+          image: 192.168.150.24:8082/nginx-demo:latest
+          imagePullPolicy: Always
 
         ports:
         - containerPort: 80
