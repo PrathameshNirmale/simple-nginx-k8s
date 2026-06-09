@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-demo
+  name: {{ .Release. Name }}-deployment
 spec:
-  replicas: 2
+  replicas: {{ .Values.replicaCount }} 
   selector:
     matchLabels:
-      app: nginx-demo
+      app: {{.Chart.Name}}
   template:
     metadata:
       labels:
-        app: nginx-demo
+        app: {{.Chart.Name}}
     spec:
       imagePullSecrets:
       - name: nexus-secret
       containers:
-      - name: nginx-demo
-        image: 192.168.150.24:8082/nginx-demo:latest
+      - name: nginx
+        image:  "{{ .Values.image.repository }}:{ { .Values.image.tag }}" 
         imagePullPolicy: Always
         ports:
         - containerPort: 80

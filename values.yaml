@@ -1,0 +1,9 @@
+replicaCount: 3 
+
+image: 
+  repository: 192.168.150.24:8082/nginx-demo
+  tag: latest
+
+service: 
+  type: NodePort
+  port: 80 
